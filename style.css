@@ -1,0 +1,94 @@
+/* Общие стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Контейнер для сетки */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Сетка фотографий */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 150px); /* Сетка из 5 колонок */
+    grid-template-rows: repeat(5, 150px); /* Сетка из 5 строк */
+    gap: 10px;
+    position: relative;
+}
+
+/* Стили для фотографий */
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    grid-column: span 1; /* Одна фотография занимает 1 ячейку */
+}
+
+/* Центрируем текст в сетке */
+.center-text {
+    font-family: 'Nunito', sans-serif;
+    grid-column: 2 / 5; /* Центрируем текст по колонкам */
+    grid-row: 2 / 5; /* Центрируем текст по строкам */
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Чтобы текст был выше фотографий */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Анимация сердечек */
+#hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 5s linear infinite;
+    color: #ff4d4d;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
